@@ -1,0 +1,37 @@
+theme:
+  staff: '#FFFFFF'
+  gen: '#800020'
+  accent: '#800020'
+storage: yaml
+request-cooldown-seconds: 60
+messages:
+  denied: 'You do not have permission.'
+  saved: 'Saved case {id}.'
+  error: 'Could not save the case. Contact an administrator.'
+  protected: 'This player is protected.'
+  frozen: 'A moderator has frozen you.'
+  muted: 'You are muted.'
+
+jdbc:
+  driver: org.h2.Driver
+  url: "jdbc:h2:file:{folder}/database"
+  properties:
+    user: sa
+    password: ""
+menu:
+  requests: {slot: 10, material: PAPER, label: Open requests}
+  duty: {slot: 12, material: CLOCK, label: Toggle duty}
+  vanish: {slot: 14, material: ENDER_PEARL, label: Toggle vanish}
+  stafflist: {slot: 16, material: BOOK, label: Online staff}
+roles:
+  helper:
+    level: 10
+    actions: [menu, duty, requests, resolve, staffchat, stafflist, warn, note]
+  moderator:
+    level: 20
+    actions: [menu, duty, requests, resolve, staffchat, stafflist, warn, note, history, mute, unmute, kick, freeze, unfreeze]
+presets:
+  mute:
+    spam: {duration: 10m, reason: Repeated spam}
+  ban:
+    harassment: {duration: 7d, reason: Harassment}

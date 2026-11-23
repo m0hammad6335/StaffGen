@@ -1,0 +1,93 @@
+name: StaffGen
+version: 1.0-beta
+main: ir.devwebs.staffgen.StaffGen
+api-version: '1.21'
+authors: [m0hammad6335, m0hammad1]
+website: https://devwebs.ir
+description: Staff moderation, player cases and support requests for Minecraft servers.
+commands:
+  sg:
+    aliases: [staffgen]
+    description: StaffGen moderation and support
+    usage: /sg [command]
+permissions:
+  staffgen.ban:
+    default: false
+  staffgen.mute:
+    default: false
+  staffgen.warn:
+    default: false
+  staffgen.kick:
+    default: false
+  staffgen.unban:
+    default: false
+  staffgen.unmute:
+    default: false
+  staffgen.unwarn:
+    default: false
+  staffgen.history:
+    default: false
+  staffgen.note:
+    default: false
+  staffgen.report:
+    default: true
+  staffgen.appeal:
+    default: true
+  staffgen.helpop:
+    default: true
+  staffgen.requests:
+    default: false
+  staffgen.resolve:
+    default: false
+  staffgen.staffchat:
+    default: false
+  staffgen.freeze:
+    default: false
+  staffgen.unfreeze:
+    default: false
+  staffgen.vanish:
+    default: false
+  staffgen.tp:
+    default: false
+  staffgen.tphere:
+    default: false
+  staffgen.invsee:
+    default: false
+  staffgen.stafflist:
+    default: false
+  staffgen.reload:
+    default: false
+  staffgen.protected:
+    default: false
+  staffgen.menu:
+    default: false
+  staffgen.endersee:
+    default: false
+  staffgen.staffwarn:
+    default: false
+  staffgen.star:
+    default: false
+  staffgen.record:
+    default: false
+  staffgen.duty:
+    default: false
+  staffgen.msg:
+    default: false
+  staffgen.reply:
+    default: false
+  staffgen.ignore:
+    default: false
+  staffgen.chatlock:
+    default: false
+  staffgen.slowchat:
+    default: false
+  staffgen.broadcast:
+    default: false
+  staffgen.clearchat:
+    default: false
+  staffgen.chat.bypass:
+    default: false
+  staffgen.role.helper:
+    default: false
+  staffgen.role.moderator:
+    default: false

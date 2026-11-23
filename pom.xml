@@ -1,0 +1,7 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"><modelVersion>4.0.0</modelVersion>
+  <groupId>ir.devwebs</groupId><artifactId>StaffGen</artifactId><version>1.0-beta</version>
+  <properties><maven.compiler.release>17</maven.compiler.release><project.build.sourceEncoding>UTF-8</project.build.sourceEncoding></properties>
+  <repositories><repository><id>spigot-snapshots</id><url>https://hub.spigotmc.org/nexus/repository/snapshots/</url></repository></repositories>
+  <dependencies><dependency><groupId>org.spigotmc</groupId><artifactId>spigot-api</artifactId><version>1.21.4-R0.1-SNAPSHOT</version><scope>provided</scope></dependency></dependencies>
+  <build><plugins><plugin><artifactId>maven-compiler-plugin</artifactId><version>3.13.0</version></plugin></plugins></build>
+</project>
