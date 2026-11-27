@@ -1,17 +1,41 @@
-name: Build
+name: Build StaffGen
+
 on: [push, pull_request]
+
+permissions:
+  contents: read
+
 jobs:
   package:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        tool: [maven, gradle]
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-java@v4
         with:
           distribution: temurin
           java-version: '21'
-          cache: maven
-      - run: mvn --batch-mode package
+      - uses: gradle/actions/setup-gradle@v4
+        if: matrix.tool == 'gradle'
+        with:
+          gradle-version: '8.14.3'
+      - name: Package with Maven
+        if: matrix.tool == 'maven'
+        run: mvn --batch-mode --no-transfer-progress verify
+      - name: Package with Gradle
+        if: matrix.tool == 'gradle'
+        run: gradle --no-daemon build
+      - name: Check plugin and bundled storage clients
+        env:
+          JAR: ${{ matrix.tool == 'maven' && 'target/StaffGen-1.0-beta.jar' || 'build/libs/StaffGen-1.0-beta.jar' }}
+        run: |
+          jar tf "$JAR" > "$RUNNER_TEMP/staffgen-contents"
+          for entry in plugin.yml config.yml ir/devwebs/staffgen/StaffGen.class com/mongodb/client/MongoClient.class redis/clients/jedis/Jedis.class; do
+            grep -Fxq "$entry" "$RUNNER_TEMP/staffgen-contents"
+          done
       - uses: actions/upload-artifact@v4
         with:
-          name: StaffGen
-          path: target/StaffGen-*.jar
+          name: StaffGen-${{ matrix.tool }}
+          path: ${{ matrix.tool == 'maven' && 'target/StaffGen-1.0-beta.jar' || 'build/libs/StaffGen-1.0-beta.jar' }}

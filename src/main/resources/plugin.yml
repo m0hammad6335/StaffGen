@@ -4,13 +4,24 @@ main: ir.devwebs.staffgen.StaffGen
 api-version: '1.21'
 authors: [m0hammad6335, m0hammad1]
 website: https://devwebs.ir
-description: Staff moderation, player cases and support requests for Minecraft servers.
+description: Configurable staff management, player support and moderation for Minecraft servers.
+softdepend: [PlaceholderAPI, LuckPerms, Vault]
 commands:
   sg:
     aliases: [staffgen]
-    description: StaffGen moderation and support
+    description: Open the StaffGen command list
     usage: /sg [command]
 permissions:
+  staffgen.help:
+    default: true
+  staffgen.menu:
+    default: false
+  staffgen.version:
+    default: true
+  staffgen.reload:
+    default: false
+  staffgen.doctor:
+    default: false
   staffgen.ban:
     default: false
   staffgen.mute:
@@ -25,9 +36,21 @@ permissions:
     default: false
   staffgen.unwarn:
     default: false
+  staffgen.undo:
+    default: false
   staffgen.history:
     default: false
+  staffgen.bans:
+    default: false
+  staffgen.mutes:
+    default: false
+  staffgen.punish:
+    default: false
   staffgen.note:
+    default: false
+  staffgen.notes:
+    default: false
+  staffgen.delnote:
     default: false
   staffgen.report:
     default: true
@@ -39,11 +62,35 @@ permissions:
     default: false
   staffgen.resolve:
     default: false
-  staffgen.staffchat:
+  staffgen.star:
     default: false
-  staffgen.freeze:
+  staffgen.unstar:
     default: false
-  staffgen.unfreeze:
+  staffgen.staffwarn:
+    default: false
+  staffgen.unstaffwarn:
+    default: false
+  staffgen.record:
+    default: false
+  staffgen.setrank:
+    default: false
+  staffgen.promote:
+    default: false
+  staffgen.demote:
+    default: false
+  staffgen.profile:
+    default: false
+  staffgen.stafflist:
+    default: false
+  staffgen.stats:
+    default: false
+  staffgen.top:
+    default: false
+  staffgen.announce:
+    default: false
+  staffgen.pin:
+    default: false
+  staffgen.duty:
     default: false
   staffgen.vanish:
     default: false
@@ -51,25 +98,19 @@ permissions:
     default: false
   staffgen.tphere:
     default: false
+  staffgen.rtp:
+    default: false
+  staffgen.freeze:
+    default: false
+  staffgen.unfreeze:
+    default: false
   staffgen.invsee:
-    default: false
-  staffgen.stafflist:
-    default: false
-  staffgen.reload:
-    default: false
-  staffgen.protected:
-    default: false
-  staffgen.menu:
     default: false
   staffgen.endersee:
     default: false
-  staffgen.staffwarn:
+  staffgen.inspect:
     default: false
-  staffgen.star:
-    default: false
-  staffgen.record:
-    default: false
-  staffgen.duty:
+  staffgen.staffchat:
     default: false
   staffgen.msg:
     default: false
@@ -77,17 +118,39 @@ permissions:
     default: false
   staffgen.ignore:
     default: false
+  staffgen.group:
+    default: false
   staffgen.chatlock:
     default: false
   staffgen.slowchat:
     default: false
-  staffgen.broadcast:
-    default: false
   staffgen.clearchat:
     default: false
-  staffgen.chat.bypass:
+  staffgen.broadcast:
+    default: false
+  staffgen.logs:
+    default: false
+  staffgen.spy:
+    default: false
+  staffgen.cmdspy:
+    default: false
+  staffgen.alts:
+    default: false
+  staffgen.cps:
+    default: false
+  staffgen.reach:
     default: false
   staffgen.role.helper:
     default: false
   staffgen.role.moderator:
+    default: false
+  staffgen.protected:
+    default: false
+  staffgen.vanish.see:
+    default: false
+  staffgen.invsee.offline:
+    default: false
+  staffgen.chat.bypass:
+    default: false
+  staffgen.announcements.receive:
     default: false

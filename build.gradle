@@ -1,18 +1,52 @@
-plugins { id 'java' }
+plugins {
+    id 'java'
+    id 'com.gradleup.shadow' version '8.3.8'
+}
 
 group = 'ir.devwebs'
 version = '1.0-beta'
 
 repositories {
     mavenCentral()
-    maven { url = uri('https://hub.spigotmc.org/nexus/repository/snapshots/') }
+    maven {
+        name = 'placeholderApi'
+        url = uri('https://repo.extendedclip.com/releases/')
+        content { includeGroup 'me.clip' }
+    }
+    maven {
+        name = 'spigotSnapshots'
+        url = uri('https://hub.spigotmc.org/nexus/repository/snapshots/')
+        content { includeGroup 'org.spigotmc' }
+    }
 }
 
 dependencies {
+    compileOnly('me.clip:placeholderapi:2.11.6') { transitive = false }
     compileOnly 'org.spigotmc:spigot-api:1.21.4-R0.1-SNAPSHOT'
+    implementation 'org.mongodb:mongodb-driver-sync:5.2.1'
+    implementation 'redis.clients:jedis:5.2.0'
 }
 
 tasks.withType(JavaCompile).configureEach {
     options.release = 17
     options.encoding = 'UTF-8'
 }
+
+tasks.withType(AbstractArchiveTask).configureEach {
+    preserveFileTimestamps = false
+    reproducibleFileOrder = true
+}
+
+// Both build systems produce one installable JAR containing the storage clients.
+jar { archiveClassifier = 'thin' }
+
+shadowJar {
+    archiveClassifier = ''
+    mergeServiceFiles()
+    dependencies { exclude(dependency('org.slf4j:slf4j-api:.*')) }
+    exclude 'META-INF/*.SF', 'META-INF/*.RSA', 'META-INF/*.DSA'
+    exclude 'module-info.class', 'META-INF/versions/*/module-info.class'
+}
+
+build.dependsOn shadowJar
+

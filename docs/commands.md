@@ -1,0 +1,68 @@
+# Command reference
+
+Use /sg help in game to list the actions available to your account. The long form is /staffgen. Angle brackets mark required arguments and square brackets mark optional ones. A duration accepts units such as 15m, 2h or 7d. Type perm for a permanent sanction.
+
+- `/sg help [command]` — `staffgen.help`
+- `/sg menu` — `staffgen.menu`
+- `/sg version` — `staffgen.version`
+- `/sg reload` — `staffgen.reload`
+- `/sg doctor` — `staffgen.doctor`
+- `/sg ban <player> <duration|perm|@preset> [public|silent] [reason]` — `staffgen.ban`
+- `/sg mute <player> <duration|perm|@preset> [public|silent] [reason]` — `staffgen.mute`
+- `/sg warn <player> [public|silent] <reason>` — `staffgen.warn`
+- `/sg kick <player> [public|silent] <reason>` — `staffgen.kick`
+- `/sg unban <player> <reason>` — `staffgen.unban`
+- `/sg unmute <player> <reason>` — `staffgen.unmute`
+- `/sg unwarn <case-id> <reason>` — `staffgen.unwarn`
+- `/sg undo <case-id> <reason>` — `staffgen.undo`
+- `/sg history <player> [page]` — `staffgen.history`
+- `/sg bans [page]` — `staffgen.bans`
+- `/sg mutes [page]` — `staffgen.mutes`
+- `/sg punish <player>` — `staffgen.punish`
+- `/sg note <player> <text>` — `staffgen.note`
+- `/sg notes <player> [page]` — `staffgen.notes`
+- `/sg delnote <case-id> <reason>` — `staffgen.delnote`
+- `/sg report <player> <reason>` — `staffgen.report`
+- `/sg appeal <message>` — `staffgen.appeal`
+- `/sg helpop <message>` — `staffgen.helpop`
+- `/sg requests [page]` — `staffgen.requests`
+- `/sg resolve <case-id> <resolution>` — `staffgen.resolve`
+- `/sg star <staff> <reason>` — `staffgen.star`
+- `/sg unstar <case-id> <reason>` — `staffgen.unstar`
+- `/sg staffwarn <staff> <reason>` — `staffgen.staffwarn`
+- `/sg unstaffwarn <case-id> <reason>` — `staffgen.unstaffwarn`
+- `/sg record <player> [page]` — `staffgen.record`
+- `/sg setrank <player> <role|none>` — `staffgen.setrank`
+- `/sg promote <player>` — `staffgen.promote`
+- `/sg demote <player>` — `staffgen.demote`
+- `/sg profile [player]` — `staffgen.profile`
+- `/sg stafflist` — `staffgen.stafflist`
+- `/sg stats [player]` — `staffgen.stats`
+- `/sg top` — `staffgen.top`
+- `/sg announce <message>` — `staffgen.announce`
+- `/sg pin [message|clear]` — `staffgen.pin`
+- `/sg duty` — `staffgen.duty`
+- `/sg vanish` — `staffgen.vanish`
+- `/sg tp <player>` — `staffgen.tp`
+- `/sg tphere <player>` — `staffgen.tphere`
+- `/sg rtp` — `staffgen.rtp`
+- `/sg freeze <player> <reason>` — `staffgen.freeze`
+- `/sg unfreeze <player> <reason>` — `staffgen.unfreeze`
+- `/sg invsee <player>` — `staffgen.invsee`
+- `/sg endersee <player>` — `staffgen.endersee`
+- `/sg inspect <player>` — `staffgen.inspect`
+- `/sg staffchat <message>` — `staffgen.staffchat`
+- `/sg msg <player> <message>` — `staffgen.msg`
+- `/sg reply <message>` — `staffgen.reply`
+- `/sg ignore <player>` — `staffgen.ignore`
+- `/sg group <operation> [arguments]` — `staffgen.group`
+- `/sg chatlock` — `staffgen.chatlock`
+- `/sg slowchat <seconds>` — `staffgen.slowchat`
+- `/sg clearchat` — `staffgen.clearchat`
+- `/sg broadcast <message>` — `staffgen.broadcast`
+- `/sg logs <category> [arguments]` — `staffgen.logs`
+- `/sg spy` — `staffgen.spy`
+- `/sg cmdspy` — `staffgen.cmdspy`
+- `/sg alts <player>` — `staffgen.alts`
+- `/sg cps <player>` — `staffgen.cps`
+- `/sg reach <player>` — `staffgen.reach`

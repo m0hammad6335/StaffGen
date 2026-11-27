@@ -1,0 +1,5 @@
+# When enabled, capture a read-only copy of each player's inventory at logout.
+enabled: false
+retention-days: 7
+max-kib: 512
+

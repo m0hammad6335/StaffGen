@@ -1,37 +1,57 @@
+# Restart after changing storage. Only the selected backend is opened.
+# yaml, sqlite, h2, mysql, mariadb, postgresql, cockroachdb, sqlserver, tidb,
+# mongodb, redis, or jdbc (custom JDBC URL and driver).
+storage: yaml
+jdbc:
+  driver: org.h2.Driver
+  url: 'jdbc:h2:file:{folder}/database'
+  properties: {user: sa, password: ''}
+# Override driver defaults for a named backend under databases.<name>.
+# See docs/storage.md for deployment and migration instructions.
+databases: {}
+
 theme:
   staff: '#FFFFFF'
   gen: '#800020'
   accent: '#800020'
-storage: yaml
-request-cooldown-seconds: 60
-messages:
-  denied: 'You do not have permission.'
-  saved: 'Saved case {id}.'
-  error: 'Could not save the case. Contact an administrator.'
-  protected: 'This player is protected.'
-  frozen: 'A moderator has frozen you.'
-  muted: 'You are muted.'
 
-jdbc:
-  driver: org.h2.Driver
-  url: "jdbc:h2:file:{folder}/database"
-  properties:
-    user: sa
-    password: ""
+# Player-facing text lives in messages.yml. Existing messages.* overrides also work.
+page-size: 10
+request-cooldown-seconds: 60
+disabled-actions: []
+freeze-allowed-actions: [help, report, helpop, appeal]
+muted-blocked-commands: [msg, tell, w, r, reply, me, whisper, mail, group]
+
+# Nodes granted by a permission manager override internal role grants.
+# Assign local roles with /sg setrank. Each level must be unique.
+roles:
+  helper:
+    level: 10
+    actions: [menu, duty, requests, resolve, staffchat, stafflist, warn, note, profile, group]
+  moderator:
+    level: 20
+    actions: [menu, duty, requests, resolve, staffchat, stafflist, warn, note, notes,
+              history, mute, unmute, kick, freeze, unfreeze, profile, group, punish]
+
+punishments:
+  default-mode: silent
+# The first repeated offense uses the first repeat-duration. The last step is the cap.
+presets:
+  mute:
+    spam:
+      duration: 10m
+      reason: Repeated spam
+      repeat-durations: [30m, 2h]
+      icon: PAPER
+  ban:
+    harassment:
+      duration: 7d
+      reason: Harassment
+      icon: BOOK
+
+# Each key is an /sg action. Items appear only for players allowed to use that action.
 menu:
   requests: {slot: 10, material: PAPER, label: Open requests}
   duty: {slot: 12, material: CLOCK, label: Toggle duty}
   vanish: {slot: 14, material: ENDER_PEARL, label: Toggle vanish}
   stafflist: {slot: 16, material: BOOK, label: Online staff}
-roles:
-  helper:
-    level: 10
-    actions: [menu, duty, requests, resolve, staffchat, stafflist, warn, note]
-  moderator:
-    level: 20
-    actions: [menu, duty, requests, resolve, staffchat, stafflist, warn, note, history, mute, unmute, kick, freeze, unfreeze]
-presets:
-  mute:
-    spam: {duration: 10m, reason: Repeated spam}
-  ban:
-    harassment: {duration: 7d, reason: Harassment}

@@ -1,0 +1,13 @@
+# All dates in /sg logs are UTC. Case history is stored separately.
+retention-days: 30
+record-chat: false
+record-command-names: false
+record-logins: false
+# Disabling a monitor clears its active observers on reload.
+allow-command-spy: false
+allow-private-message-spy: false
+allow-online-alt-check: false
+allow-combat-observation: false
+# Command logs and live observers only receive the root label. Arguments are discarded.
+# These roots (including plugin-prefixed variants) are completely excluded.
+hidden-commands: [login, l, register, reg, changepassword, changepass, changepw, cp, log, captcha, authme, email, 2fa, totp, recovery]
